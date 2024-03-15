@@ -1,0 +1,24 @@
+<form [formGroup]="antiHeroForm" class="container" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" id="firstName" class="form-control">
+        
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" id="lastName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="knownAs">Known As</label>
+        <input type="text" formControlName="knownAs" id="knownAs" class="form-control">
+    </div>
+
+    <br/>
+    <ng-container formArrayName="powers">
+        <label for="powers">Powers</label>
+        <div class="input-group mb-3" *ngFor="let _ of powerFormArray.controls; index as i">
+            <input [formControlName]="i" class="form-control" />
+        </div>
+    </ng-container>
+</form>
